@@ -1,0 +1,71 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Registrar Préstamo</h1>
+        <p>Monto disponible en caja: ${{ monto_disponible }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.cliente.id_for_label }}">Cliente:</label>
+                {{ form.cliente }}
+            </div>
+            
+            <div>
+                <label for="id_monto">Monto:</label>
+                <input type="number" name="monto" id="id_monto" step="0.01" required>
+            </div>
+            
+            <div>
+                <label for="id_tasa_interes">Tasa de Interés (%):</label>
+                <input type="number" name="tasa_interes" id="id_tasa_interes" step="0.01" value="2" required>
+            </div>
+            
+            <div>
+                <label for="id_interes">Interés:</label>
+                <input type="number" name="interes" id="id_interes" step="0.01" readonly>
+            </div>
+                
+            <div>
+                <label for="id_plazo">Plazo (meses):</label>
+                <input type="number" name="plazo" id="id_plazo" required>
+            </div>
+                
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <!--   SCRIPTS   -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const montoInput = document.getElementById('id_monto');
+            const tasaInteresInput = document.getElementById('id_tasa_interes');
+            const interesInput = document.getElementById('id_interes');
+    
+            function calcularInteres() {
+                const monto = parseFloat(montoInput.value);
+                const tasaInteres = parseFloat(tasaInteresInput.value);
+    
+                if (!isNaN(monto) && !isNaN(tasaInteres)) {
+                    /*const interes = (monto * tasaInteres) / 100;*/
+                    const interes = (monto/100)*tasaInteres*12
+                    interesInput.value = interes.toFixed(2);
+                } else {
+                    interesInput.value = '';
+                }
+            }
+    
+            montoInput.addEventListener('input', calcularInteres);
+            tasaInteresInput.addEventListener('input', calcularInteres);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+# Ignorar la carpeta del entorno virtual
+venv/
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+
+# Ignorar archivos de configuración local
+settings/local.py
+
+# Ignorar archivos de base de datos
+*.sqlite3
+*.db
+
+# Ignorar archivos estáticos y medios
+staticfiles/
+media/
+
+# Ignorar archivos de IDE
+.idea/
+.vscode/
+
+# Otros
+.DS_Store

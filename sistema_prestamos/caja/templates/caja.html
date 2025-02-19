@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="text-center"><span class="fw-bold">CAJA MOVIMIENTOS</span></div>
+        <div>
+            <div class="text-end bg-danger">
+                {% if total_caja %}
+                    <div class=""> {{ total_caja.monto_disponible }} Bs</div>
+                {% else %}
+                    <div class=""> 0.00 </div>
+                {% endif %}
+            </div>
+            <div class="text-end"><a href="{% url 'agregar_dinero_caja' %}">ADD DINERO EN CAJA</a></div>
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="fw-bold">NOMBRE</th>
+                        <th class="fw-bold">MONTO</th>
+                        <th class="fw-bold">FECHA</th>
+                        <th class="fw-bold">TIPO DE MOVIMIENTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for m in movimiento %}
+                    <tr class="">
+                        <td class="">{{ m.nombre }}</td>
+                        <td>{{ m.monto }}</td>
+                        <td>{{ m.fecha }}</td>
+                        <td>{{ m.tipo_movimiento }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

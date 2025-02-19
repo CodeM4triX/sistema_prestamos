@@ -1,0 +1,9 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>AGREGAR DINERO A CAJA</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}

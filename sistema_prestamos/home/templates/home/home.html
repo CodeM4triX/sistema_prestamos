@@ -1,0 +1,21 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <div class="contenedor">
+        <div class="text-end"><a href="{% url 'admin:index' %}" class="btn">ADMIN</a></div>
+        <div class="text-center"><h1>SISTEMA DE PRESTAMOS</h1></div>
+        <div class="content d-flex flex-row justify-content-around align-items-center" width="100%" style="height: 100vh;">
+            <div class="">
+                <div><a href="{% url 'caja' %}">CAJA</a></div>
+                <div>Total Caja</div>
+                <div>Interes</div>
+                <div>Total + Interes</div>
+            </div>
+            <div class="">
+                <div><a href="{% url 'clients' %}">CLIENTES</a></div>
+                <div><a href="{% url 'loans' %}">PRESTAMOS</a></div>
+                <div><a href="{% url 'payments' %}">PAGOS</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

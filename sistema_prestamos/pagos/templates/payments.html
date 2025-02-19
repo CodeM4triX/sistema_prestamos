@@ -1,0 +1,30 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center"><span class="fw-bold">PAGOS</span></div>
+        <div class="text-end"><a href="{% url 'register_pay' %}">Register_Pay</a></div>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="fw-bold">PRESTAMO</th>
+                        <th class="fw-bold">MONTO_PAGO</th>
+                        <th class="fw-bold">PAGO_INTERES</th>
+                        <th class="fw-bold">FECHA_PAGO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in pagos %}
+                    <tr class="">
+                        <td class="">{{ p.prestamo }}</td>
+                        <td>{{ p.monto_pago }}</td>
+                        <td>{{ p.pagar_interes }}</td>
+                        <td>{{ p.fecha_pago }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
