@@ -14,6 +14,7 @@
                         <th class="fw-bold">INTERES</th>
                         <th class="fw-bold">FECHA_INICIO</th>
                         <th class="fw-bold">PLAZO</th>
+                        <th class="fw-bold">_____</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,10 +22,11 @@
                     <tr class="">
                         <td class="">{{ p.cliente }}</td>
                         <td>{{ p.monto }}</td>
-                        <td>{{ p.tasa_interes }}</td>
+                        <td>{{ p.tasa_interes }} % </td>
                         <td>{{ p.interes }}</td>
                         <td>{{ p.fecha_inicio }}</td>
                         <td>{{ p.plazo }}</td>
+                        <td><a href="{% url 'register_pay_with_id' p.id %}">Pay</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

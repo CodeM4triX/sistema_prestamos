@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 APPS = [
-    'home',
     'account',
+    'home',
     'caja',
     'clientes',
     'prestamos',
@@ -129,3 +129,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "home"  # Cambia 'home' a la vista a donde quieras redirigir después del login
+#LOGOUT_REDIRECT_URL = "login"
+LOGOUT_REDIRECT_URL = ""

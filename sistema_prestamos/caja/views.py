@@ -7,7 +7,6 @@ def caja(request):
     #total_caja = Caja.objects.all()    # obtiene todos los registros de caja, en html se debe iterar sobre el queryset con bucle for
     #total_caja = Caja.objects.first()  # Obtiene el primer registro de Caja
     total_caja = Caja.objects.get(id=1)  # Obtiene el registro con id=1
-    print(total_caja)
     movimiento = MovimientoCaja.objects.all()
     return render(request, 'caja.html', {'movimiento':movimiento, 'total_caja':total_caja})
 

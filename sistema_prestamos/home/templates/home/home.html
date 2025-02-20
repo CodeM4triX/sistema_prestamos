@@ -2,14 +2,60 @@
 
 {% block content %}
     <div class="contenedor">
-        <div class="text-end"><a href="{% url 'admin:index' %}" class="btn">ADMIN</a></div>
+        <div class="text-end">
+            <a href="{% url 'logout' %}">Cerrar_session</a>
+            <a href="{% url 'admin:index' %}" class="btn">ADMIN</a>
+        </div>
         <div class="text-center"><h1>SISTEMA DE PRESTAMOS</h1></div>
         <div class="content d-flex flex-row justify-content-around align-items-center" width="100%" style="height: 100vh;">
             <div class="">
-                <div><a href="{% url 'caja' %}">CAJA</a></div>
-                <div>Total Caja</div>
-                <div>Interes</div>
-                <div>Total + Interes</div>
+                <div>
+                    <div>
+                        <div><a href="{% url 'caja' %}">CAJA</a></div>
+                    </div>
+                    <div>
+                        {% if total_caja %}
+                            <div class=""> {{ total_caja.monto_disponible }} Bs</div>
+                        {% else %}
+                            <div class=""> 0.00 </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            INTERES_PAGADO
+                        </div>
+                        <div>
+                            {% if interes %}
+                                <div class=""> {{ interes.interes_pagado }} Bs</div>
+                            {% else %}
+                                <div class=""> 0.00 </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            INTERES_TOTAL
+                        </div>
+                        <div>
+                            {% if interes %}
+                                <div class=""> {{ interes.interes_total }} Bs</div>
+                            {% else %}
+                                <div class=""> 0.00 </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div>
+                    <div>
+                        SUMA_TOTAL
+                    </div>
+                    <div>
+                        {{ suma_total }} Bs
+                    </div>
+                </div>
             </div>
             <div class="">
                 <div><a href="{% url 'clients' %}">CLIENTES</a></div>

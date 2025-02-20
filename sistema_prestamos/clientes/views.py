@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.cache import never_cache
 from .forms import ClienteForm
 from .models import Cliente
 
 # Create your views here.
+@never_cache
 def clients(request):
     clientes = Cliente.objects.all()
     return render(request, 'clients.html', {'clients': clientes})

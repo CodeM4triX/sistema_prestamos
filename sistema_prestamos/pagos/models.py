@@ -8,7 +8,7 @@ from caja.models import Caja
 class Pago(models.Model):
     prestamo = models.ForeignKey(Prestamo, on_delete=models.CASCADE)
     monto_pago = models.DecimalField(max_digits=10, decimal_places=2)
-    pagar_interes = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # Campo para el interés calculado
+    pagar_interes = models.DecimalField(max_digits=10, decimal_places=2, default=0)  # Campo para el interés calculado
     fecha_pago = models.DateField(auto_now_add=True)
 
     def __str__(self):

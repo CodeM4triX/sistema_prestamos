@@ -5,6 +5,7 @@
         <h1>Registrar Pago</h1>
         <form method="post">
             {% csrf_token %}  <!-- Token de seguridad para formularios en Django -->
+
             {{ form.as_p }}    <!-- Renderiza el formulario como párrafos -->
             <button type="submit">Registrar Pago</button>
         </form>
