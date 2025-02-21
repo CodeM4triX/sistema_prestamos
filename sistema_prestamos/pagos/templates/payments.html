@@ -1,10 +1,16 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/clients.css' %}">
+{% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="text-center"><span class="fw-bold">PAGOS</span></div>
-        <div class="text-end"><a href="{% url 'register_pay' %}">Register_Pay</a></div>
-        <div>
+        <h3 class="titulo">PAGOS</h3>
+        <div class="enlace text-end"><a href="{% url 'register_pay' %}">Register_Pay</a></div>
+        <div class="box_table">
             <table class="table table-bordered">
                 <thead>
                     <tr>

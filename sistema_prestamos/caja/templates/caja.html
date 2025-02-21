@@ -1,18 +1,25 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/clients.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container">
-        <div class="text-center"><span class="fw-bold">CAJA MOVIMIENTOS</span></div>
-        <div>
-            <div class="text-end bg-danger">
+        <h3 class="titulo">CAJA MOVIMIENTOS</h3>
+        <div class="cont">
+            <div class="text-end">
                 {% if total_caja %}
-                    <div class=""> {{ total_caja.monto_disponible }} Bs</div>
+                    <div class="">Total:  {{ total_caja.monto_disponible }} Bs</div>
                 {% else %}
-                    <div class=""> 0.00 </div>
+                    <div class="">Total:  0.00 Bs</div>
                 {% endif %}
             </div>
-            <div class="text-end"><a href="{% url 'agregar_dinero_caja' %}">ADD DINERO EN CAJA</a></div>
+            <div class="enlace text-end"><a href="{% url 'agregar_dinero_caja' %}">AGREGAR DINERO EN CAJA</a></div>
         </div>
-        <div>
+        <div class="box_table">
             <table class="table table-bordered">
                 <thead>
                     <tr>

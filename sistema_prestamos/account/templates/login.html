@@ -1,23 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    
     {% if user.is_authenticated %}
         <p>Bienvenido, {{ user.username }} <a href="{% url 'logout' %}">Cerrar sesión</a></p>
     {% else %}
-        <h2>Iniciar Sesión</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Ingresar</button>
-        </form>
-        <p>¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate aquí</a></p>
-    {% endif %}
+    <div class="container">
+        <div class="form">
+            <h2>Login</h2>
+            <form method="post">
+                <div class="inputBox">
+                    <input type="text" name="username" maxlength="150" required id="id_username">
+                    <span>{{form.username.label}}</span>
+                    <i></i>
+                </div>
 
+                <div class="inputBox">
+                    <input type="password" name="password" required id="id_password">
+                    <span>{{form.password.label}}</span>
+                    <i></i>
+                </div>
+
+                <div class="submitBox">
+                    <input type="submit" value="Submit">
+                </div>
+
+                <p>¿No tienes cuenta? <a href="/register/">Regístrate aquí</a></p>
+                {% csrf_token %}
+            </form>
+        </div>
+    {% endif %}
     
 </body>
 </html>

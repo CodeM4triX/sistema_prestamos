@@ -1,0 +1,130 @@
+.container{
+    padding: 10px;
+    /*background: red;*/
+    min-height: 100vh;
+}
+.container .text-end{
+    background: transparent;
+}
+.container .text-end a:nth-child(1){
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px 6px;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.container .text-end a:nth-child(2){
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    padding: 3px 6px;
+    border: 1px solid #fff;
+}
+.container .text-center{
+    /*background: purple;*/
+    padding: 20px;
+}
+.container .text-center h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.banner{
+    padding: 10px;
+    height: 80vh;
+    /*background-color: aqua;*/
+}
+.banner .p_col{
+    /*background: #333;*/
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.banner .p_col .box_caja{
+   background: transparent;
+   margin: 15px 0;
+}
+.banner .p_col .box_caja div:nth-child(1) a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+}
+.banner .p_col .box_caja div:nth-child(1) a span{
+    color: blue;
+    font-size: 0.8rem;
+}
+.banner .p_col .box_caja div:nth-child(2) div{
+    /*background-color: #000;*/
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+.banner .p_col .box_interes{
+    background: transparent;
+    margin: 15px 0;
+}
+.banner .p_col .box_interes .col{
+    margin: 0 20px;
+}
+.banner .p_col .box_interes .col .titulo{
+    color: #fff;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+}
+.banner .p_col .box_interes .col div:nth-child(2){
+    /*background-color: #000;*/
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.banner .p_col .box_total{
+    background: transparent;
+    margin: 15px 0;
+}
+.banner .p_col .box_total .titulo{
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+}
+.banner .p_col .box_total div:nth-child(2){
+    /*background-color: #000;*/
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8rem;
+}
+.banner .s_col{
+    /*background: hsl(0, 0%, 0%);*/
+    border-left: 2px solid #333;
+    padding: 10px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.banner .s_col .box{
+    /*background: purple;*/
+    padding: 5px;
+}
+.banner .s_col .box div{
+    /*background: red;*/
+    margin: 20px 0;
+}
+.banner .s_col .box div a{
+    text-decoration: none;
+    padding: 0 3px;
+    color: #888;
+    font-size: 1.3rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.banner .s_col .box div a:hover{
+    color: #fff;
+    text-shadow: 0px 0px 4px #fff;
+    /*box-shadow: 0px 0px 6px rgb(246, 48, 13);*/
+}

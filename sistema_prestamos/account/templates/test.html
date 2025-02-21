@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+    <h2>Registro</h2>
+    <form method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" value="DsWwmtsl1QSWTMtToWiiael8ArnsADLtR1Vg51CSy48CRb9TVpVk63syxicX6CTg">
+        <p>
+    <label for="id_username">Username:</label>
+    <input type="text" name="username" maxlength="150" required aria-describedby="id_username_helptext" id="id_username">
+    
+      <span class="helptext" id="id_username_helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_email">Email address:</label>
+    <input type="email" name="email" maxlength="254" id="id_email">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_password">Contraseña:</label>
+    <input type="password" name="password" required id="id_password">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_password2">Confirmar Contraseña:</label>
+    <input type="password" name="password2" required id="id_password2">
+    
+    
+      
+    
+  </p>
+        <button type="submit">Registrarse</button>
+    </form>
+    <p>¿Ya tienes cuenta? <a href="/">Iniciar sesión</a></p>
+</body>
+</html>

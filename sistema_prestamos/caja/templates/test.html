@@ -1,23 +1,40 @@
 {% extends "home/base.html" %}
-{% load static %}
-{% block head %}
-    {{block.super}}
-    <link rel="stylesheet" href="{% static 'css/register_clients.css' %}">
-{% endblock %}
 
 {% block content %}
     <div class="container">
-        <h3 class="titulo">Registrar Préstamo</h3>
-        <p class="fw-bold">disponible_caja : ${{ monto_disponible }}</p>
-        <div class="form_cont">
-            <form method="post">
-                {% csrf_token %}
+        <h1>Registrar Préstamo</h1>
+        <p>Monto disponible en caja: ${{ monto_disponible }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.cliente.id_for_label }}">Cliente:</label>
+                {{ form.cliente }}
+            </div>
+            
+            <div>
+                <label for="id_monto">Monto:</label>
+                <input type="number" name="monto" id="id_monto" step="0.01" required>
+            </div>
+            
+            <div>
+                <label for="id_tasa_interes">Tasa de Interés (%):</label>
+                <input type="number" name="tasa_interes" id="id_tasa_interes" step="0.01" value="2" required>
+            </div>
+            
+            <div>
+                <label for="id_interes">Interés:</label>
+                <input type="number" name="interes" id="id_interes" step="0.01" readonly>
+            </div>
                 
-                {{ form.as_p }}
-    
+            <div>
+                <label for="id_plazo">Plazo (meses):</label>
+                <input type="number" name="plazo" id="id_plazo" required>
+            </div>
+                
+            <div>
                 <button type="submit">Guardar</button>
-            </form>
-        </div>
+            </div>
+        </form>
 
         {% if messages %}
         <ul class="messages">

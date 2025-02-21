@@ -1,17 +1,23 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block content %}
-    <div class="contenedor">
+    <div class="container">
         <div class="text-end">
             <a href="{% url 'logout' %}">Cerrar_session</a>
-            <a href="{% url 'admin:index' %}" class="btn">ADMIN</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
         </div>
         <div class="text-center"><h1>SISTEMA DE PRESTAMOS</h1></div>
-        <div class="content d-flex flex-row justify-content-around align-items-center" width="100%" style="height: 100vh;">
-            <div class="">
-                <div>
+        <div class="banner row">
+            <div class="p_col col-8">
+                <div class="box_caja">
                     <div>
-                        <div><a href="{% url 'caja' %}">CAJA</a></div>
+                        <a href="{% url 'caja' %}">CAJA -> <span>ir a caja</span></a>
                     </div>
                     <div>
                         {% if total_caja %}
@@ -21,21 +27,9 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="row">
+                <div class="box_interes row">
                     <div class="col">
-                        <div>
-                            INTERES_PAGADO
-                        </div>
-                        <div>
-                            {% if interes %}
-                                <div class=""> {{ interes.interes_pagado }} Bs</div>
-                            {% else %}
-                                <div class=""> 0.00 </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div>
+                        <div class="titulo">
                             INTERES_TOTAL
                         </div>
                         <div>
@@ -46,21 +40,35 @@
                             {% endif %}
                         </div>
                     </div>
-                    
+                    <div class="col">
+                        <div class="titulo">
+                            INTERES_PAGADO
+                        </div>
+                        <div>
+                            {% if interes %}
+                                <div class=""> {{ interes.interes_pagado }} Bs</div>
+                            {% else %}
+                                <div class=""> 0.00 </div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div>
-                        SUMA_TOTAL
+                <div class="box_total">
+                    <div class="titulo">
+                        TOTAL
                     </div>
                     <div>
                         {{ suma_total }} Bs
                     </div>
                 </div>
             </div>
-            <div class="">
-                <div><a href="{% url 'clients' %}">CLIENTES</a></div>
-                <div><a href="{% url 'loans' %}">PRESTAMOS</a></div>
-                <div><a href="{% url 'payments' %}">PAGOS</a></div>
+            <div class="s_col col-4">
+                <div class="box">
+                    <div><a href="{% url 'clients' %}">CLIENTES</a></div>
+                    <div><a href="{% url 'loans' %}">PRESTAMOS</a></div>
+                    <div><a href="{% url 'payments' %}">PAGOS</a></div>
+                </div>
+                
             </div>
         </div>
     </div>

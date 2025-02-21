@@ -1,13 +1,21 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/register_clients.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Registrar Nuevo Cliente</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
+    <h3 class="titulo">Registrar Nuevo Cliente</h3>
+    <div class="form_cont">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
